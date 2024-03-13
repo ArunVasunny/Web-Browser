@@ -9,14 +9,15 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
 public class WebController implements Initializable{
+    
     @FXML 
-    WebView myWebView;
+    public WebView myWebView;
 
     @FXML 
-    TextField textField;
+    public TextField textField;
 
     @FXML
-    WebEngine webEngine;
+    public WebEngine webEngine;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
