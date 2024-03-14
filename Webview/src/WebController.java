@@ -27,9 +27,11 @@ public class WebController implements Initializable{
 
     @FXML
     public Button backButton;
-
-    @FXML
-    // public button nextButton
+    public Button nextButton;
+    public Button refreshButton;
+    public Button searchButton;
+    public Button zoomInButton;
+    public Button zoomOutButton;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -37,8 +39,22 @@ public class WebController implements Initializable{
         webEngine = myWebView.getEngine();
         history = webEngine.getHistory();
 
-        backButton.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/Images/back.png"))));
-    
+        setButtonImage(backButton, "/Images/back.png", 22.0, 22.0);
+        setButtonImage(nextButton, "/Images/next.png", 22.0, 22.0);
+        setButtonImage(refreshButton, "/Images/refresh.png", 22.0, 22.0);
+        setButtonImage(searchButton,"/Images/loupe.png", 22.0, 22.0);
+        setButtonImage(zoomInButton, "/Images/in.png", 22.0, 22.0);
+        setButtonImage(zoomOutButton, "/Images/out.png", 22.0, 22.0);
+
+    }
+
+    public void setButtonImage(Button button, String imgPath, Double width, Double height)
+    {
+        ImageView imgView = new ImageView(new Image(getClass().getResourceAsStream(imgPath)));
+        imgView.setFitHeight(height);
+        imgView.setFitWidth(width);
+        button.setGraphic(imgView);
+        button.setStyle("-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 50%;");
     }
 
     public void loadPage()
@@ -92,7 +108,7 @@ public class WebController implements Initializable{
 
 
     }
-
+    
     public void next()
     {
         history = webEngine.getHistory();
@@ -114,7 +130,4 @@ public class WebController implements Initializable{
     public void onEnter(ActionEvent event){
         loadPage();
     }
-
-    
-
 }
