@@ -28,6 +28,7 @@ public class WebController implements Initializable{
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         webEngine = myWebView.getEngine();
+        history = webEngine.getHistory();
         // loadPage();
     }
 
@@ -68,12 +69,30 @@ public class WebController implements Initializable{
 
     public void back()
     {
+        history = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entries = history.getEntries();
+        int currentIndex = history.getCurrentIndex();
+
+        if (currentIndex > 0) {
+            history.go(-1);
+        } else {
+            System.out.println("No previous page in history.");
+        }
         
+
     }
 
     public void next()
     {
+        history = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entries = history.getEntries();
+        int currentIndex = history.getCurrentIndex();
 
+        if (currentIndex < entries.size() - 1) {
+            history.go(1);
+        } else {
+            System.out.println("No next page in history.");
+        }
     }
     
 
