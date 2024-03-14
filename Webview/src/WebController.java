@@ -1,6 +1,7 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
@@ -19,10 +20,55 @@ public class WebController implements Initializable{
     @FXML
     public WebEngine webEngine;
 
+    public double webZoom,currentZoom;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
+        webEngine = myWebView.getEngine();
+        // loadPage();
+    }
 
+    public void loadPage()
+    {
+        String url = ("https://www."+textField.getText()+".com");
+        System.out.println(url);
+        webEngine.load(url);
+    }
+
+    public void refreshPage()
+    {
+        webEngine.reload();
+    }
+
+    public void zoomIn()
+    {
+        currentZoom = myWebView.getZoom();
+        webZoom = currentZoom + 0.1;
+        myWebView.setZoom(webZoom);
+    }
+
+    public void zoomOut()
+    {
+        currentZoom = myWebView.getZoom();
+        webZoom = currentZoom - 0.1;
+        myWebView.setZoom(webZoom);
+    }
+
+    public void back()
+    {
+
+    }
+
+    public void next()
+    {
+
+    }
+    
+
+    //Textfield Gets executed when enter pressed
+    public void onEnter(ActionEvent event){
+        loadPage();
     }
 
     
