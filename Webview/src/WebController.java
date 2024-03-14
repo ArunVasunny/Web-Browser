@@ -4,7 +4,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
@@ -23,11 +25,19 @@ public class WebController implements Initializable{
     public WebHistory history;
     public double webZoom,currentZoom;
 
+    @FXML
+    public Button backButton;
+
+    @FXML
+    // public button nextButton
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         webEngine = myWebView.getEngine();
         history = webEngine.getHistory();
+
+        backButton.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/Images/back.png"))));
     
     }
 
