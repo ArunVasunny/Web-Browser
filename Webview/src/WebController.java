@@ -29,7 +29,7 @@ public class WebController implements Initializable{
 
         webEngine = myWebView.getEngine();
         history = webEngine.getHistory();
-        // loadPage();
+    
     }
 
     public void loadPage()
@@ -78,7 +78,9 @@ public class WebController implements Initializable{
         } else {
             System.out.println("No previous page in history.");
         }
-        
+
+        textField.setText(entries.get(history.getCurrentIndex()).getUrl());
+
 
     }
 
@@ -93,6 +95,9 @@ public class WebController implements Initializable{
         } else {
             System.out.println("No next page in history.");
         }
+
+        textField.setText(entries.get(history.getCurrentIndex()).getUrl());
+        
     }
     
 
