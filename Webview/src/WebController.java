@@ -1,12 +1,14 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 
 public class WebController implements Initializable{
@@ -19,7 +21,7 @@ public class WebController implements Initializable{
 
     @FXML
     public WebEngine webEngine;
-
+    public WebHistory history;
     public double webZoom,currentZoom;
 
     @Override
@@ -55,9 +57,18 @@ public class WebController implements Initializable{
         myWebView.setZoom(webZoom);
     }
 
+    public void displayHistory()
+    {
+        history = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entries = history.getEntries();
+        for (WebHistory.Entry entry : entries) {
+            System.out.println(entry.getUrl()+" "+entry.getLastVisitedDate());
+        }
+    }
+
     public void back()
     {
-
+        
     }
 
     public void next()
