@@ -8,18 +8,22 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="1200.0" style="-fx-background-color: #4545cd;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WebController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="824.0" prefWidth="1200.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WebController">
    <children>
       <WebView fx:id="myWebView" layoutX="4.0" layoutY="169.0" prefHeight="650.0" prefWidth="1192.0" />
-      <TextField fx:id="textField" layoutX="209.0" layoutY="85.0" onAction="#onEnter" prefHeight="25.0" prefWidth="745.0" promptText="Search karo yaaro" />
+      <TextField fx:id="textField" layoutX="185.0" layoutY="88.0" onAction="#onEnter" prefHeight="33.0" prefWidth="745.0" promptText="Search karo yaaro">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font></TextField>
       <ImageView fitHeight="49.0" fitWidth="240.0" layoutX="525.0" layoutY="14.0" opacity="0.89" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/NetPulse.png" />
          </image>
       </ImageView>
-      <MenuBar layoutX="1126.0" layoutY="85.0" prefHeight="25.0" prefWidth="36.0">
+      <MenuBar layoutX="1128.0" layoutY="89.0" prefHeight="25.0" prefWidth="36.0">
         <menus>
           <Menu mnemonicParsing="false" text="...">
             <items>
@@ -28,11 +32,11 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="85.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" />
-      <Button layoutX="75.0" layoutY="85.0" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="40.0" text="next" />
-      <Button layoutX="138.0" layoutY="85.0" mnemonicParsing="false" onAction="#refreshPage" prefHeight="40.0" prefWidth="40.0" text="refresh" />
-      <Button layoutX="969.0" layoutY="85.0" mnemonicParsing="false" onAction="#loadPage" text="Load" />
-      <Button layoutX="1031.0" layoutY="85.0" mnemonicParsing="false" onAction="#zoomIn" text="+" />
-      <Button layoutX="1076.0" layoutY="85.0" mnemonicParsing="false" onAction="#zoomOut" text="-" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="89.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="40.0" />
+      <Button fx:id="nextButton" layoutX="70.0" layoutY="89.0" mnemonicParsing="false" onAction="#next" prefHeight="25.0" prefWidth="40.0" />
+      <Button fx:id="refreshButton" layoutX="128.0" layoutY="89.0" mnemonicParsing="false" onAction="#refreshPage" prefHeight="25.0" prefWidth="40.0" />
+      <Button fx:id="searchButton" layoutX="945.0" layoutY="89.0" mnemonicParsing="false" onAction="#loadPage" prefHeight="25.0" prefWidth="40.0" />
+      <Button fx:id="zoomInButton" layoutX="1005.0" layoutY="89.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="25.0" prefWidth="40.0" />
+      <Button fx:id="zoomOutButton" layoutX="1064.0" layoutY="89.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="25.0" prefWidth="40.0" />
    </children>
 </AnchorPane>
