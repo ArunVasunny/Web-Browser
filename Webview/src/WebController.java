@@ -42,7 +42,7 @@ public class WebController implements Initializable{
         setButtonImage(backButton, "/Images/back.png", 22.0, 22.0);
         setButtonImage(nextButton, "/Images/next.png", 22.0, 22.0);
         setButtonImage(refreshButton, "/Images/refresh.png", 22.0, 22.0);
-        setButtonImage(searchButton,"/Images/loupe.png", 22.0, 22.0);
+        setButtonImage(searchButton,"/Images/search.png", 22.0, 22.0);
         setButtonImage(zoomInButton, "/Images/in.png", 22.0, 22.0);
         setButtonImage(zoomOutButton, "/Images/out.png", 22.0, 22.0);
 
