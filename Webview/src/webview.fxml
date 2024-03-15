@@ -18,9 +18,9 @@
          <font>
             <Font name="Calibri" size="12.0" />
          </font></TextField>
-      <ImageView fitHeight="49.0" fitWidth="240.0" layoutX="525.0" layoutY="14.0" opacity="0.89" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="240.0" layoutX="481.0" layoutY="14.0" opacity="0.89" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/NetPulse.png" />
+            <Image url="@Images/netpulse.png" />
          </image>
       </ImageView>
       <MenuBar layoutX="1128.0" layoutY="89.0" prefHeight="25.0" prefWidth="36.0">
