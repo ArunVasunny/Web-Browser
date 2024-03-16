@@ -1,10 +1,14 @@
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.beans.binding.BooleanBinding;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,6 +37,9 @@ public class WebController implements Initializable{
     public Button zoomInButton;
     public Button zoomOutButton;
 
+    @FXML
+    public ProgressBar loadingBar;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -54,14 +61,23 @@ public class WebController implements Initializable{
         imgView.setFitHeight(height);
         imgView.setFitWidth(width);
         button.setGraphic(imgView);
-        button.setStyle("-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 50%;");
+        button.setStyle("-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 50%; -fx-border-color: white;");
     }
 
     public void loadPage()
     {
+        loadingProgress();
         String url = ("https://www."+textField.getText()+".com");
         System.out.println(url);
         webEngine.load(url);
+    }
+
+    //display loading progress of a website
+    public void loadingProgress()
+    {
+        loadingBar.progressProperty().bind(webEngine.getLoadWorker().progressProperty());
+        BooleanBinding isRunning = webEngine.getLoadWorker().stateProperty().isEqualTo(Worker.State.RUNNING);
+        loadingBar.visibleProperty().bind(isRunning);
     }
 
     public void refreshPage()
@@ -106,7 +122,6 @@ public class WebController implements Initializable{
 
         textField.setText(entries.get(history.getCurrentIndex()).getUrl());
 
-
     }
     
     public void next()
@@ -125,7 +140,6 @@ public class WebController implements Initializable{
         
     }
     
-
     //Textfield Gets executed when enter pressed
     public void onEnter(ActionEvent event){
         loadPage();
