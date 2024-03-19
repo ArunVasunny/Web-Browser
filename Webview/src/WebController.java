@@ -45,6 +45,7 @@ public class WebController implements Initializable{
 
         webEngine = myWebView.getEngine();
         history = webEngine.getHistory();
+        webEngine.load(getClass().getClassLoader().getResource("file.html").toExternalForm());
 
         setButtonImage(backButton, "/Images/back.png", 22.0, 22.0);
         setButtonImage(nextButton, "/Images/next.png", 22.0, 22.0);
